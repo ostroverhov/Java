@@ -1,10 +1,11 @@
-import javax.swing.text.DateFormatter;
-import java.text.DateFormat;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+package by.ostroverhov.myProject.Drugs;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
-public class DrugList implements Input {
+public class DrugList implements InputDrug, OutputDrug {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     private Drug[] ourDrugs;
@@ -13,12 +14,6 @@ public class DrugList implements Input {
     public DrugList(int countDrugs) {
         this.countDrugs = countDrugs;
         ourDrugs = new Drug[countDrugs];
-    }
-
-    public LocalDateTime parse(String dateProduction) {
-        DateTimeFormatter format = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDateTime dateTime = LocalDateTime.parse(dateProduction, format);
-        return dateTime;
     }
 
     @Override
@@ -33,9 +28,7 @@ public class DrugList implements Input {
             System.out.println("Введите номер серии: ");
             int batch = SCANNER.nextInt();
             System.out.println("Введите дату производства: ");
-            String hhh = SCANNER.next();
-            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH-mm");
-            LocalDateTime productionDate = LocalDateTime.parse(hhh, formatter);
+            Date productionDate = parse(SCANNER.next());
             System.out.println("Введите номер: ");
             Boolean qualityControl = SCANNER.nextBoolean();
             System.out.println("Введите количество упаковок: ");
@@ -44,7 +37,20 @@ public class DrugList implements Input {
         }
     }
 
+    private Date parse (String date){
+        SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+        try {
+            return format.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new Date();
+    }
+
+    @Override
     public void output() {
-        System.out.println(this);
+        for (int i = 0; i < countDrugs; i++) {
+            System.out.println(ourDrugs[i]);
+        }
     }
 }

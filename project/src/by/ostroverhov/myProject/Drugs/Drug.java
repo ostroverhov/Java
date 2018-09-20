@@ -1,14 +1,15 @@
-import java.time.LocalDateTime;
+package by.ostroverhov.myProject.Drugs;
+
 import java.util.Date;
 
 public class Drug {
-    int id;
-    String name;
-    String drugform;
-    int batch;
-    Date productionDate;
-    Boolean qualityControl;
-    int amountPackages;
+    private int id;
+    private String name;
+    private String drugform;
+    private int batch;
+    private Date productionDate;
+    private Boolean qualityControl;
+    private int amountPackages;
 
     public Drug(int id, String name, String drugform, int batch, Date productionDate, Boolean qualityControl, int amountPackages) {
         this.id = id;
