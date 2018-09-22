@@ -1,4 +1,4 @@
-package by.ostroverhov.myProject.Drugs;
+package by.ostroverhov.myProject.drugs;
 
 public interface OutputDrug {
     void output();
