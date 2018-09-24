@@ -15,6 +15,6 @@ public class Chair {
 
     @Override
     public String toString() {
-        return name + "(площадь " + area + "м^2)";
+        return name + " (площадь " + area + " м^2) ";
     }
 }

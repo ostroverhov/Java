@@ -16,9 +16,9 @@ public class Room {
         this.windowsNumber = windowsNumber;
     }
 
-    List<Lamp> lampList = new LinkedList<Lamp>();
-    List<Table> tableList = new LinkedList<Table>();
-    List<Chair> chairList = new LinkedList<Chair>();
+    public List<Lamp> lampList = new LinkedList<Lamp>();
+    public List<Table> tableList = new LinkedList<Table>();
+    public List<Chair> chairList = new LinkedList<Chair>();
 
     public int lightningRoom() throws IlluminanceLimitException {
         int lightning = windowsNumber * 700;
@@ -46,4 +46,10 @@ public class Room {
             throw new SpaceLimitException("количество добавленной мебели превышает пределы");
     }
 
+    @Override
+    public String toString() {
+        return name +
+                ", площадь " + area + " м^2" +
+                ", количество окон " + windowsNumber;
+    }
 }

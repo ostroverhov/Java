@@ -14,6 +14,10 @@ public class Building {
         this.name = name;
     }
 
-    List<Room> roomList = new LinkedList<Room>();
+    public List<Room> roomList = new LinkedList<Room>();
 
+    @Override
+    public String toString() {
+        return  name;
+    }
 }
