@@ -6,6 +6,6 @@ import by.ostroverhov.lesson6.calculator.operands.OperandsBoundsException;
 public class Multyply implements Operations {
     @Override
     public double calculate(Operands operands) throws OperandsBoundsException {
-        return operands.get(0) + operands.get(1);
+        return operands.get(0) * operands.get(1);
     }
 }
