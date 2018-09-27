@@ -5,6 +5,4 @@ public interface List<T> {
     T get(int index) throws IndexOutOfBoundsException;
     T remove(int index);
     int size();
-
-
 }
