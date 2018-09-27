@@ -1,7 +1,5 @@
 package by.ostroverhov.lesson7.ArrayList;
 
-import java.util.Iterator;
-
 public class Main {
 
 
@@ -21,13 +19,12 @@ public class Main {
         System.out.println(list.size());
 
 
-        Iterable iter =  list.iterable();
+        Iterator iter =  list.iterator();
         while(iter.hasNext()){
             System.out.println(iter.next());
         }
 
 
-                iter.forEach();
 
         for (Integer integer : list) {
             System.out.println(integer);
