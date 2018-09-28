@@ -3,7 +3,6 @@ package by.ostroverhov.lesson7.ArrayList;
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
 import java.util.NoSuchElementException;
-import java.util.function.Consumer;
 
 public class ArrayList<T> implements List<T>, Iterable {
     private static final int DEFAULT_CAPACITY = 10;

@@ -1,9 +1,6 @@
 package by.ostroverhov.lesson7.ArrayList;
 
-import java.util.Iterator;
 import java.util.Objects;
-import java.util.Spliterator;
-import java.util.Spliterators;
 import java.util.function.Consumer;
 
 public interface Iterable {
