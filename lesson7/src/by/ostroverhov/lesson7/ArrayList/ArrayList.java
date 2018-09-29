@@ -2,9 +2,10 @@ package by.ostroverhov.lesson7.ArrayList;
 
 import java.util.Arrays;
 import java.util.ConcurrentModificationException;
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class ArrayList<T> implements List<T>, Iterable {
+public class ArrayList<T> implements List<T> {
     private static final int DEFAULT_CAPACITY = 10;
     private T[] array;
     private int index = 0;
@@ -51,7 +52,7 @@ public class ArrayList<T> implements List<T>, Iterable {
         return array.length;
     }
 
-
+//-----------------------------------------------------------------
     public Iterator<T> iterator()  {
         return new Itr();
     }
@@ -87,7 +88,7 @@ public class ArrayList<T> implements List<T>, Iterable {
         }
     }
 
-
+//---------------------------------------------------------------------
 
     @Override
     public String toString() {
