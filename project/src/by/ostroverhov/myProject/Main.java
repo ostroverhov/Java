@@ -41,7 +41,5 @@ public class Main {
         for (Drug i:drugList) {
             System.out.println(i);
         }
-
-
     }
 }
