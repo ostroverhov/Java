@@ -5,9 +5,7 @@ import by.ostroverhov.myProject.drugs.DrugList;
 import by.ostroverhov.myProject.drugs.MySearchException;
 import by.ostroverhov.myProject.drugs.SortByName;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
+import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
@@ -34,8 +32,7 @@ public class Main {
         System.out.println("------------------");
         drugList.proportionOfDrugForm();
         System.out.println("------------------");
-        Collections.sort(drugList, new SortByName());
-        Arrays.sort(drugList, new SortByName());
+        Collections.sort(new ArrayList<Drug>() , new SortByName());
 
         for (Drug i:drugList) {
             System.out.println(i);
