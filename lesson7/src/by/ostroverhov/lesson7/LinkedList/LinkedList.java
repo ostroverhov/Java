@@ -1,6 +1,7 @@
 package by.ostroverhov.lesson7.LinkedList;
 
 import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.NoSuchElementException;
 
 public class LinkedList<T> implements List<T> {
@@ -11,9 +12,9 @@ public class LinkedList<T> implements List<T> {
     private static class Node<T> {
 
         T item;
+
         Node<T> next;
         Node<T> prev;
-
         public Node(Node<T> prev, T item, Node<T> next) {
             this.item = item;
             this.next = next;
@@ -25,8 +26,8 @@ public class LinkedList<T> implements List<T> {
             return String.valueOf(item);
         }
 
-    }
 
+    }
     Node<T> node(int index) {
         if (index < (size >> 1)) {
             Node<T> x = first;
@@ -98,14 +99,23 @@ public class LinkedList<T> implements List<T> {
         return size;
     }
 
-    public Iterator<T> iterator() {
-        return new Itr();
+//-------------------------------------------
+
+    public Iterator<T> iterator(int index) {
+        return new Itr(index);
     }
+
+
 
     public class Itr implements Iterator<T> {
         int nextIndex;
         private Node<T> lastReturned;
         private Node<T> next;
+
+        public Itr(int index) {
+            next = (index == size) ? null : node(index);
+            nextIndex = index;
+        }
 
         @Override
         public boolean hasNext() {
