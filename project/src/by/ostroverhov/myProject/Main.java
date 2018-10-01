@@ -1,13 +1,7 @@
 package by.ostroverhov.myProject;
 
-import by.ostroverhov.myProject.drugs.Drug;
-import by.ostroverhov.myProject.drugs.DrugList;
-import by.ostroverhov.myProject.drugs.MySearchException;
-import by.ostroverhov.myProject.drugs.SortByName;
-
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
