@@ -14,6 +14,8 @@ public class Main {
 
         System.out.println(list.size());
 
+        System.out.println("-----------------");
+
         for (Integer i:list) {
             System.out.println(i);
         }

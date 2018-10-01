@@ -26,8 +26,8 @@ public class LinkedList<T> implements List<T> {
             return String.valueOf(item);
         }
 
-
     }
+
     Node<T> node(int index) {
         if (index < (size >> 1)) {
             Node<T> x = first;
@@ -101,18 +101,18 @@ public class LinkedList<T> implements List<T> {
 
 //-------------------------------------------
 
-    public Iterator<T> iterator(int index) {
-        return new Itr(index);
+    @Override
+    public Iterator<T> iterator() {
+        return new Itr();
     }
-
-
 
     public class Itr implements Iterator<T> {
         int nextIndex;
         private Node<T> lastReturned;
         private Node<T> next;
 
-        public Itr(int index) {
+        public Itr() {
+            int index = 0;
             next = (index == size) ? null : node(index);
             nextIndex = index;
         }
