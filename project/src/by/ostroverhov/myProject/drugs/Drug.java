@@ -3,7 +3,7 @@ package by.ostroverhov.myProject.drugs;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class Drug {
+public class Drug<T> {
     private int id;
     private String name;
     private String drugform;

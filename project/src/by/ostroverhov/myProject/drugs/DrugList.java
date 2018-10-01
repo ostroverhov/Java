@@ -4,7 +4,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class DrugList implements InputDrug, OutputDrug {
+public class DrugList<T> implements InputDrug, OutputDrug {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     ArrayList<Drug> ourDrugs = new ArrayList<Drug>();
@@ -116,4 +116,5 @@ public class DrugList implements InputDrug, OutputDrug {
         }
         return new Date();
     }
+
 }
