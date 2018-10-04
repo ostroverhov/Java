@@ -14,7 +14,10 @@ public class Main {
         System.out.println(new SplitTextInTreeSet(inputText.getText()).splitTextInTreeSet());
 
         new CountWords(inputText.getText()).countWords();
+        for (Map.Entry<Object, Integer> entry:new CountWords(inputText.getText()).countWords().entrySet()) {
+            System.out.println(entry.getKey() + " = " + entry.getValue());
+        }
 
-
+        new Search(inputText.getText()).searchWord("на");
     }
 }

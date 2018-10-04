@@ -20,6 +20,7 @@ public class SplitTextInTreeSet {
         return sortedWords;
     }
 
-
-
+    public void name(){
+        System.out.println("разбить на слова без повтора");
+    }
 }

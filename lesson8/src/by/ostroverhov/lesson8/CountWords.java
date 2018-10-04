@@ -1,8 +1,6 @@
 package by.ostroverhov.lesson8;
 
 import java.util.HashMap;
-import java.util.Map;
-import java.util.SortedSet;
 
 public class CountWords {
     private String text;
@@ -13,7 +11,7 @@ public class CountWords {
 
     HashMap<Object, Integer> countWordsHashMap = new HashMap<>();
 
-    public void countWords() {
+    public HashMap<Object, Integer> countWords() {
         for (Object entry: new SplitTextInTreeSet(text).splitTextInTreeSet()) {
             for (Object element:new SplitTextInList(text).splitTextInList()) {
                 if (entry.equals(element)) {
@@ -23,8 +21,15 @@ public class CountWords {
             }
 
         }
-        for (Map.Entry<Object, Integer> entry:countWordsHashMap.entrySet()) {
-            System.out.println(entry.getKey() + " = " + entry.getValue());
-        }
+        return countWordsHashMap;
     }
+
+    public HashMap<Object, Integer> getCountWordsHashMap() {
+        return countWordsHashMap;
+    }
+
+    public void name(){
+        System.out.println("посчитать количество повторов каждого слова");
+    }
+
 }

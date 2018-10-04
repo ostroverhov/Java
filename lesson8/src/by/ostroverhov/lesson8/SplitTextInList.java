@@ -17,4 +17,8 @@ public class SplitTextInList {
         }
         return words;
     }
+
+    public void name(){
+        System.out.println("разбить на слова");
+    }
 }
