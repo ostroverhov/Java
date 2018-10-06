@@ -1,21 +1,22 @@
 package by.ostroverhov.lesson8;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 public class Menu {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     private String text = SCANNER.next();
-    private Object[] menu = {
-            new SplitTextInList(text).splitTextInList(),
-            new SplitTextInTreeSet(text).splitTextInTreeSet(),
-            new CountWords(text).countWords(),
-    };
+    private HashMap<Object, String> menu = new HashMap<>();
+    
+    public void menu() {
+        menu.put(new SplitTextInList(text).splitTextInList(), "разбить текст на слова");
+        menu.put(new SplitTextInTreeSet(text).splitTextInTreeSet(), "разбить без повторов");
+        menu.put(new CountWords(text).countWords(), "посчитать количество");
 
-    public void execute() {
-        for (int i = 0; i < menu.length; i++) {
-            System.out.println(i + " " + menu[i].name());
+        for (HashMap.Entry entry : menu.entrySet()) {
+            System.out.println(entry.getValue() + "  " +  entry.getKey());
+
         }
-        SCANNER.nextInt();
     }
 }
