@@ -1,4 +1,6 @@
-package by.ostroverhov.myProject.drugs;
+package by.ostroverhov.myProject.sort;
+
+import by.ostroverhov.myProject.drugs.Drug;
 
 import java.util.Comparator;
 

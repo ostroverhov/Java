@@ -1,43 +1,49 @@
 package by.ostroverhov.myProject;
 
-import by.ostroverhov.myProject.drugs.Drug;
-import by.ostroverhov.myProject.drugs.DrugList;
-import by.ostroverhov.myProject.drugs.MySearchException;
-import by.ostroverhov.myProject.drugs.SortByName;
+import by.ostroverhov.myProject.drugs.*;
+import by.ostroverhov.myProject.search.MySearchException;
+import by.ostroverhov.myProject.search.SearchByBatch;
+import by.ostroverhov.myProject.search.SearchByName;
+import by.ostroverhov.myProject.sort.SortByDate;
+import by.ostroverhov.myProject.sort.SortByName;
+import by.ostroverhov.myProject.statistic.ProportionOfDrugForm;
+import by.ostroverhov.myProject.statistic.Statistic6MonthAgo;
+import by.ostroverhov.myProject.statistic.StatisticMinMaxPackages;
 
 import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
         DrugList drugList = new DrugList();
-        drugList.initialData();
-        drugList.output();
 
         System.out.println("------------------");
         try {
-            drugList.searchByName("carboplatin");
+            new SearchByName(drugList.getOurDrugs()).searchByName("decitabin");
         }catch (MySearchException e) {
             System.out.println(e.getMessage());
         }
         try {
-            drugList.searchByBatch("010218");
+            new SearchByBatch(drugList.getOurDrugs()).searchByBatch("082118");
         }catch (MySearchException e) {
             System.out.println(e.getMessage());
         }
 
         System.out.println("------------------");
-        drugList.statisticMinMaxPackages();
+        new StatisticMinMaxPackages(drugList.getOurDrugs()).statisticMinMaxPackages();
         System.out.println("------------------");
-        drugList.statistic6MonthsAgo();
+        new Statistic6MonthAgo(drugList.getOurDrugs()).statistic6MonthsAgo();
         System.out.println("------------------");
-        drugList.proportionOfDrugForm();
-        System.out.println("------------------");
-        Collections.sort(new ArrayList<Drug>() , new SortByName());
+        new ProportionOfDrugForm(drugList.getOurDrugs()).proportionOfDrugForm();
 
-        for (Drug i:drugList) {
+        System.out.println("------------------");
+        Collections.sort( drugList.getOurDrugs(), new SortByName());
+        for (Object i:drugList.getOurDrugs()) {
             System.out.println(i);
         }
-
-
+        System.out.println("-------------------");
+        Collections.sort( drugList.getOurDrugs(), new SortByDate());
+        for (Object i:drugList.getOurDrugs()) {
+            System.out.println(i);
+        }
     }
 }
