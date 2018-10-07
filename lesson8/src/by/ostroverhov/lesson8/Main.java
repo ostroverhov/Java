@@ -25,6 +25,5 @@ public class Main {
         String word = Scaner.next();
         new Search(inputText.getText()).searchWord(word);
 
-        new Menu().menu();
     }
 }
