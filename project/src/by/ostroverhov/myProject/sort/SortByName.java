@@ -13,4 +13,8 @@ public class SortByName implements Comparator<Drug> {
 
         return name1.compareTo(name2);
     }
+
+    public void name() {
+        System.out.println("Сортировка по названию");
+    }
 }

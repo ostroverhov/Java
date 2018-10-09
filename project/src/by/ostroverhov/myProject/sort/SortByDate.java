@@ -18,4 +18,8 @@ public class SortByDate implements Comparator<Drug> {
         else
             return 0;
     }
+
+    public void name() {
+        System.out.println("Сортировка по дате производства");
+    }
 }

@@ -1,6 +1,7 @@
 package by.ostroverhov.myProject;
 
 import by.ostroverhov.myProject.drugs.*;
+import by.ostroverhov.myProject.menu.Menu;
 import by.ostroverhov.myProject.search.MySearchException;
 import by.ostroverhov.myProject.search.SearchByBatch;
 import by.ostroverhov.myProject.search.SearchByName;
@@ -18,22 +19,22 @@ public class Main {
 
         System.out.println("------------------");
         try {
-            new SearchByName(drugList.getOurDrugs()).searchByName("decitabin");
+            new SearchByName(drugList.getOurDrugs()).execute();
         }catch (MySearchException e) {
             System.out.println(e.getMessage());
         }
         try {
-            new SearchByBatch(drugList.getOurDrugs()).searchByBatch("082118");
+            new SearchByBatch(drugList.getOurDrugs()).execute();
         }catch (MySearchException e) {
             System.out.println(e.getMessage());
         }
 
         System.out.println("------------------");
-        new StatisticMinMaxPackages(drugList.getOurDrugs()).statisticMinMaxPackages();
+        new StatisticMinMaxPackages(drugList.getOurDrugs()).execute();
         System.out.println("------------------");
-        new Statistic6MonthAgo(drugList.getOurDrugs()).statistic6MonthsAgo();
+        new Statistic6MonthAgo(drugList.getOurDrugs()).execute();
         System.out.println("------------------");
-        new ProportionOfDrugForm(drugList.getOurDrugs()).proportionOfDrugForm();
+        new ProportionOfDrugForm(drugList.getOurDrugs()).execute();
 
         System.out.println("------------------");
         Collections.sort( drugList.getOurDrugs(), new SortByName());
@@ -45,5 +46,7 @@ public class Main {
         for (Object i:drugList.getOurDrugs()) {
             System.out.println(i);
         }
+
+        new Menu().execute();
     }
 }

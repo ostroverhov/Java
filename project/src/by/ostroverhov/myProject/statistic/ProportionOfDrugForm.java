@@ -1,17 +1,19 @@
 package by.ostroverhov.myProject.statistic;
 
 import by.ostroverhov.myProject.drugs.Drug;
+import by.ostroverhov.myProject.menu.MenuItem;
 
 import java.util.List;
 
-public class ProportionOfDrugForm {
+public class ProportionOfDrugForm implements MenuItem {
     List<Drug> ourDrugs;
 
     public ProportionOfDrugForm(List<Drug> ourDrugs) {
         this.ourDrugs = ourDrugs;
     }
 
-    public void proportionOfDrugForm() {
+    @Override
+    public void execute() {
         int amountDrugForm = ourDrugs.size();
         int amountLiophilizate = 0;
         int amountTablet = 0;
@@ -25,12 +27,15 @@ public class ProportionOfDrugForm {
             if (i.getDrugform().equals("concentrate"))
                 amountConcentrate++;
         }
-        double liophilizate = (double) amountLiophilizate / amountDrugForm * 100;
-        double tablet = (double) amountTablet / amountDrugForm * 100;
-        double concentrate = (double) amountConcentrate / amountDrugForm * 100;
+
         System.out.println("Соотношение лекформ лиофилизат/таблетка/концентрат: "
-                + liophilizate + "% / "
-                + tablet + "% / "
-                + concentrate + "%");
+                + (double) amountLiophilizate / amountDrugForm * 100 + "% / "
+                + (double) amountTablet / amountDrugForm * 100 + "% / "
+                + (double) amountConcentrate / amountDrugForm * 100 + "%");
+    }
+
+    @Override
+    public String name() {
+        return "Статистика соотношения лекформ";
     }
 }
