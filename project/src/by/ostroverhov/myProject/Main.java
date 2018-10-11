@@ -36,17 +36,8 @@ public class Main {
         System.out.println("------------------");
         new ProportionOfDrugForm(drugList.getOurDrugs()).execute();
 
-        System.out.println("------------------");
-        Collections.sort( drugList.getOurDrugs(), new SortByName());
-        for (Object i:drugList.getOurDrugs()) {
-            System.out.println(i);
-        }
-        System.out.println("-------------------");
-        Collections.sort( drugList.getOurDrugs(), new SortByDate());
-        for (Object i:drugList.getOurDrugs()) {
-            System.out.println(i);
-        }
 
-        new Menu().execute();
+
+        new Menu().start();
     }
 }

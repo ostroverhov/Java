@@ -6,7 +6,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class DrugList<T> implements InputDrug, OutputDrug, Iterator<Drug> {
+public class DrugList<T> implements Iterator<Drug> {
     private static final Scanner SCANNER = new Scanner(System.in);
 
     List<Drug> ourDrugs = new ArrayList<Drug>();
@@ -23,62 +23,10 @@ public class DrugList<T> implements InputDrug, OutputDrug, Iterator<Drug> {
         return ourDrugs;
     }
 
-    @Override
-    public void input() {
-        System.out.println("Введите номер: ");
-        int id = SCANNER.nextInt();
-        System.out.println("Введите название: ");
-        String name = SCANNER.next();
-        System.out.println("Введите лекформу: ");
-        String drugform = SCANNER.next();
-        System.out.println("Введите номер серии: ");
-        String batch = SCANNER.next();
-        System.out.println("Введите дату производства: ");
-        Date productionDate = parse(SCANNER.next());
-        System.out.println("Контроль качества true/false: ");
-        Boolean qualityControl = SCANNER.nextBoolean();
-        System.out.println("Введите количество упаковок: ");
-        int amountPackages = SCANNER.nextInt();
-        ourDrugs.add(new Drug(id, name, drugform, batch, productionDate, qualityControl, amountPackages));
-    }
-
-    @Override
     public void output() {
         for (Drug i : ourDrugs) {
             System.out.println(i);
         }
-    }
-
-    public void statistic6MonthsAgo() {
-        Date currentDate = new Date();
-        Calendar c = Calendar.getInstance();
-        c.setTime(currentDate);
-        c.add(Calendar.MONTH, -6);
-        Date date6MonthsAgo = c.getTime();
-        System.out.println(date6MonthsAgo);
-
-        for (Drug i : ourDrugs) {
-            if (i.getProductionDate().compareTo(date6MonthsAgo) < 0)
-                System.out.println(i);
-        }
-    }
-
-    public void proportionOfDrugForm() {
-        int amountDrugForm = ourDrugs.size();
-        int amountLiophilizate = 0;
-        int amountTablet = 0;
-        int amountConcentrate = 0;
-
-        for (Drug i : ourDrugs) {
-            if (i.getDrugform().equals("liophilizate"))
-                amountLiophilizate++;
-            if (i.getDrugform().equals("tablet"))
-                amountTablet++;
-            if (i.getDrugform().equals("concentrate"))
-                amountConcentrate++;
-        }
-        System.out.println("Соотношение лекформ лиофилизат/таблетка/концентрат: "
-                + amountLiophilizate + "/" + amountTablet + "/" + amountConcentrate);
     }
 
     private Date parse(String date) {

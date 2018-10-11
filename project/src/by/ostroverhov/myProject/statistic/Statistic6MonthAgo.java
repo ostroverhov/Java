@@ -28,9 +28,4 @@ public class Statistic6MonthAgo implements MenuItem {
                 System.out.println(i);
         }
     }
-
-    @Override
-    public String name() {
-        return "Статистика произведенно продукции 6 месяцев назад";
-    }
 }

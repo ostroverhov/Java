@@ -34,8 +34,4 @@ public class ProportionOfDrugForm implements MenuItem {
                 + (double) amountConcentrate / amountDrugForm * 100 + "%");
     }
 
-    @Override
-    public String name() {
-        return "Статистика соотношения лекформ";
-    }
 }

@@ -2,19 +2,22 @@ package by.ostroverhov.myProject.sort;
 
 import by.ostroverhov.myProject.drugs.Drug;
 
+import java.util.Collections;
 import java.util.Comparator;
+import java.util.List;
 
-public class SortByName implements Comparator<Drug> {
+public class SortByName {
+    List<Drug> ourDrugs;
 
-    @Override
-    public int compare(Drug o1, Drug o2) {
-        String name1 = o1.getName();
-        String name2 = o2.getName();
-
-        return name1.compareTo(name2);
+    public SortByName(List<Drug> ourDrugs) {
+        this.ourDrugs = ourDrugs;
     }
 
-    public void name() {
-        System.out.println("Сортировка по названию");
+    public void execute() {
+        Collections.sort(ourDrugs, new CompByName());
+        for (Object i:ourDrugs) {
+            System.out.println(i);
+        }
     }
+
 }

@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class SearchByName  {
-    Scanner scanner = new Scanner(System.in);
+    private Scanner scanner = new Scanner(System.in);
     List<Drug> ourDrugs;
 
     public SearchByName(List<Drug> ourDrugs) {
@@ -22,9 +22,5 @@ public class SearchByName  {
                 System.out.println(i);
             } else throw new MySearchException("данного названия препарата нет в базе");
         }
-    }
-
-    public String name() {
-        return "Поиск по названию";
     }
 }

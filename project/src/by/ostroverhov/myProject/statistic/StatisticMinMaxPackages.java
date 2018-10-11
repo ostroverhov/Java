@@ -28,9 +28,4 @@ public class StatisticMinMaxPackages implements MenuItem {
         System.out.println("серия с минимальным количеством упаковок:\n " + minDrugAmountPackages);
         System.out.println("серия с максимальным количеством упаковок:\n " + maxDrugAmountPackages);
     }
-
-    @Override
-    public String name() {
-        return "Статистика с мин и мах количеством упаковок";
-    }
 }

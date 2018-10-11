@@ -2,24 +2,21 @@ package by.ostroverhov.myProject.sort;
 
 import by.ostroverhov.myProject.drugs.Drug;
 
-import java.util.Comparator;
-import java.util.Date;
+import java.util.Collections;
+import java.util.List;
 
-public class SortByDate implements Comparator<Drug> {
-    @Override
-    public int compare(Drug o1, Drug o2) {
-        Date date1 = o1.getProductionDate();
-        Date date2 = o2.getProductionDate();
+public class SortByDate {
+    List<Drug> ourDrugs;
 
-        if (date1.compareTo(date2)>0)
-            return 1;
-        else if (date1.compareTo(date2)<0)
-            return -1;
-        else
-            return 0;
+    public SortByDate(List<Drug> ourDrugs) {
+        this.ourDrugs = ourDrugs;
     }
 
-    public void name() {
-        System.out.println("Сортировка по дате производства");
+    public void execute() {
+        Collections.sort(ourDrugs, new CompByDate());
+        for (Object i:ourDrugs) {
+            System.out.println(i);
+        }
     }
+
 }
