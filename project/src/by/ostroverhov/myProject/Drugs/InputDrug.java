@@ -1,12 +1,14 @@
 package by.ostroverhov.myProject.drugs;
 
+import by.ostroverhov.myProject.menu.MenuItem;
+
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-public class InputDrug {
+public class InputDrug implements MenuItem {
     private Scanner scanner = new Scanner(System.in);
     List<Drug> ourDrugs;
 
@@ -14,6 +16,7 @@ public class InputDrug {
         this.ourDrugs = ourDrugs;
     }
 
+    @Override
     public void execute() {
         System.out.println("Введите номер: ");
         int id = scanner.nextInt();

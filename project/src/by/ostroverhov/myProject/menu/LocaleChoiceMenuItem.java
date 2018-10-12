@@ -13,9 +13,9 @@ public class LocaleChoiceMenuItem implements MenuItem, RootMenuItem {
 
     @Override
     public void execute() {
-        StringBuilder show = new StringBuilder("Выберите язык: \n");
+        StringBuilder show = new StringBuilder("Выберите язык:");
         for (int i = 0; i < locales.size(); i++) {
-            show.append(i + 1).append(". ").append(locales.get(i)).append("\n");
+            show.append("\n").append(i + 1).append(". ").append(locales.get(i));
         }
         System.out.println(show.toString());
 
@@ -24,7 +24,7 @@ public class LocaleChoiceMenuItem implements MenuItem, RootMenuItem {
         ResourceBundle bundle = ResourceBundle.getBundle("resource", localeChoice);
         System.out.println(bundle.getString("hello"));
 
-        next.execute();;
+        next.execute();
     }
 
     @Override

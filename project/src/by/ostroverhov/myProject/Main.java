@@ -17,27 +17,17 @@ public class Main {
     public static void main(String[] args) {
         DrugList drugList = new DrugList();
 
-        System.out.println("------------------");
-        try {
-            new SearchByName(drugList.getOurDrugs()).execute();
-        }catch (MySearchException e) {
-            System.out.println(e.getMessage());
-        }
+        new OutputDrug(drugList.getOurDrugs()).execute();
+
         try {
             new SearchByBatch(drugList.getOurDrugs()).execute();
-        }catch (MySearchException e) {
+        } catch (MySearchException e) {
             System.out.println(e.getMessage());
+            e.printStackTrace();
         }
 
         System.out.println("------------------");
-        new StatisticMinMaxPackages(drugList.getOurDrugs()).execute();
-        System.out.println("------------------");
-        new Statistic6MonthAgo(drugList.getOurDrugs()).execute();
-        System.out.println("------------------");
-        new ProportionOfDrugForm(drugList.getOurDrugs()).execute();
 
-
-
-        new Menu().start();
+        // new Menu().start();
     }
 }

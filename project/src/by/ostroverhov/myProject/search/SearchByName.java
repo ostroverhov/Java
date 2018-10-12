@@ -5,6 +5,8 @@ import by.ostroverhov.myProject.search.MySearchException;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class SearchByName  {
     private Scanner scanner = new Scanner(System.in);
@@ -17,10 +19,13 @@ public class SearchByName  {
     public void execute() throws MySearchException {
         System.out.println("Введите название: ");
         String name = scanner.next();
+
+        Pattern serch = Pattern.compile("");
         for (Drug i : ourDrugs) {
-            if (i.getName().equals(name)) {
+            Matcher matcher = serch.matcher(i.getName());
+            if (matcher.matches()) {
                 System.out.println(i);
-            } else throw new MySearchException("данного названия препарата нет в базе");
+            }
         }
     }
 }
