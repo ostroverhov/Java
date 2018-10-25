@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hospital>
+    <patient>
+        <name>Paul</name>
+        <surname>Mccartney</surname>
+        <birthDate>18.06.1942</birthDate>
+        <pay>true</pay>
+    </patient>
+    <patient>
+        <name>Michael</name>
+        <surname>Jackson</surname>
+        <birthDate>29.08.1958</birthDate>
+        <pay>false</pay>
+    </patient>
+</hospital>
