@@ -38,6 +38,16 @@ public class Main {
             System.out.println(ex.getMessage());
         }
 
+        try(ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("patients.txt")))
+        {
+            for (Patient p:patientList.getPatients()) {
+                oos.writeObject(p);
+            }
+        }
+        catch(Exception ex){
+            System.out.println(ex.getMessage());
+        }
+
     }
 }
 
