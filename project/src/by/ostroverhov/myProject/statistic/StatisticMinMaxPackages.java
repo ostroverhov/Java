@@ -1,18 +1,20 @@
 package by.ostroverhov.myProject.statistic;
 
 import by.ostroverhov.myProject.drugs.Drug;
-import by.ostroverhov.myProject.menu.MenuItem;
+import by.ostroverhov.myProject.menu.RootMenuItem;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
-public class StatisticMinMaxPackages implements MenuItem {
+public class StatisticMinMaxPackages {
     List<Drug> ourDrugs;
+    private RootMenuItem rootMenuItem;
 
     public StatisticMinMaxPackages(List<Drug> ourDrugs) {
         this.ourDrugs = ourDrugs;
     }
 
-    @Override
     public void execute() {
         Drug minDrugAmountPackages = ourDrugs.get(0);
         Drug maxDrugAmountPackages = ourDrugs.get(0);
@@ -27,5 +29,11 @@ public class StatisticMinMaxPackages implements MenuItem {
         }
         System.out.println("серия с минимальным количеством упаковок:\n " + minDrugAmountPackages);
         System.out.println("серия с максимальным количеством упаковок:\n " + maxDrugAmountPackages);
+    }
+
+    public String localeMenu() {
+        Locale locale = rootMenuItem.getLocale();
+        ResourceBundle bundle = ResourceBundle.getBundle("resource", locale);
+        return bundle.getString("statisticMinMax");
     }
 }

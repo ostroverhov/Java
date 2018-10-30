@@ -1,22 +1,20 @@
 package by.ostroverhov.myProject.drugs;
 
-import by.ostroverhov.myProject.menu.MenuItem;
+import by.ostroverhov.myProject.menu.RootMenuItem;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class InputDrug implements MenuItem {
+public class InputDrug {
     private Scanner scanner = new Scanner(System.in);
     List<Drug> ourDrugs;
+    private RootMenuItem rootMenuItem;
 
     public InputDrug(List<Drug> ourDrugs) {
         this.ourDrugs = ourDrugs;
     }
 
-    @Override
     public void execute() {
         System.out.println("Введите номер: ");
         int id = scanner.nextInt();
@@ -33,6 +31,12 @@ public class InputDrug implements MenuItem {
         System.out.println("Введите количество упаковок: ");
         int amountPackages = scanner.nextInt();
         ourDrugs.add(new Drug(id, name, drugform, batch, productionDate, qualityControl, amountPackages));
+    }
+
+    public String localeMenu() {
+        Locale locale = rootMenuItem.getLocale();
+        ResourceBundle bundle = ResourceBundle.getBundle("resource", locale);
+        return bundle.getString("inputDrug");
     }
 
     private Date parse(String date) {

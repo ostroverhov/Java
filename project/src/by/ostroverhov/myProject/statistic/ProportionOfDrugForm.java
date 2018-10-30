@@ -1,18 +1,20 @@
 package by.ostroverhov.myProject.statistic;
 
 import by.ostroverhov.myProject.drugs.Drug;
-import by.ostroverhov.myProject.menu.MenuItem;
+import by.ostroverhov.myProject.menu.RootMenuItem;
 
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
-public class ProportionOfDrugForm implements MenuItem {
+public class ProportionOfDrugForm {
     List<Drug> ourDrugs;
+    private RootMenuItem rootMenuItem;
 
     public ProportionOfDrugForm(List<Drug> ourDrugs) {
         this.ourDrugs = ourDrugs;
     }
 
-    @Override
     public void execute() {
         int amountDrugForm = ourDrugs.size();
         int amountLiophilizate = 0;
@@ -32,6 +34,12 @@ public class ProportionOfDrugForm implements MenuItem {
                 + (double) amountLiophilizate / amountDrugForm * 100 + "% / "
                 + (double) amountTablet / amountDrugForm * 100 + "% / "
                 + (double) amountConcentrate / amountDrugForm * 100 + "%");
+    }
+
+    public String localeMenu() {
+        Locale locale = rootMenuItem.getLocale();
+        ResourceBundle bundle = ResourceBundle.getBundle("resource", locale);
+        return bundle.getString("proportion");
     }
 
 }

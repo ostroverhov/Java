@@ -1,5 +1,6 @@
 package by.ostroverhov.myProject.menu;
 
-public interface MenuItem {
+public interface MenuItemLocale {
+    String localeMenu();
     void execute();
 }

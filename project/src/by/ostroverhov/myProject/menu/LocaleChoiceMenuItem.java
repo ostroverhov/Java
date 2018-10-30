@@ -4,10 +4,10 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-public class LocaleChoiceMenuItem implements MenuItem, RootMenuItem {
+public class LocaleChoiceMenuItem implements MenuItemLocale, RootMenuItem {
     private Locales locales = new Locales();
     private Scanner scanner = new Scanner(System.in);
-    private MenuItem next = new OperationChoiceMenuItem(this);
+    private MenuItemLocale next =  new OperationChoiceMenuItem(this);
     private Locale localeChoice;
 
 
@@ -25,6 +25,11 @@ public class LocaleChoiceMenuItem implements MenuItem, RootMenuItem {
         System.out.println(bundle.getString("hello"));
 
         next.execute();
+    }
+
+    @Override
+    public String localeMenu() {
+        return null;
     }
 
     @Override

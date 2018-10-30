@@ -1,51 +1,53 @@
 package by.ostroverhov.myProject.menu;
 
 import by.ostroverhov.myProject.drugs.Drug;
-import by.ostroverhov.myProject.drugs.InputDrug;
-import by.ostroverhov.myProject.drugs.OutputDrug;
-import by.ostroverhov.myProject.search.SearchByBatch;
-import by.ostroverhov.myProject.search.SearchByName;
-import by.ostroverhov.myProject.sort.SortByDate;
-import by.ostroverhov.myProject.sort.SortByName;
-import by.ostroverhov.myProject.statistic.ProportionOfDrugForm;
-import by.ostroverhov.myProject.statistic.Statistic6MonthAgo;
-import by.ostroverhov.myProject.statistic.StatisticMinMaxPackages;
+
 
 import java.util.*;
 
-public class OperationChoiceMenuItem<localeChoice> implements MenuItem {
+public class OperationChoiceMenuItem implements MenuItemLocale, RootMenuItem {
     private RootMenuItem rootMenuItem;
     private Scanner scanner = new Scanner(System.in);
     List<Drug> ourDrugs;
-    private Map<Object, String> menu = new LinkedHashMap<>();
+    private Map<Integer, MenuItemLocale> menu = new LinkedHashMap<>();
+
+    {
+        //menu.put(1, new MenuSortByDate(this));
+        //menu.put(2, new MenuSortByName(this));
+    //    menu.put(3, new MenuSearchByBatch(rootMenuItem));
+    //    menu.put(4, new MenySearchByName(rootMenuItem));
+    //    menu.put(5, new MenuProportionOfDrugForm(rootMenuItem));
+    //    menu.put(6, new MenuStatisticMinMaxPackages(rootMenuItem));
+    //    menu.put(7, new MenuStatistic6MonthAgo(rootMenuItem));
+    }
 
     public OperationChoiceMenuItem(RootMenuItem rootMenuItem) {
         this.rootMenuItem = rootMenuItem;
     }
 
+    @Override
+    public String localeMenu() {
+        return null;
+    }
+
     public void execute() {
-        Locale locale = rootMenuItem.getLocale();           //вынести в отдельный метод?
+        new MenuSortByDate(this).localeMenu();
+        Locale locale = rootMenuItem.getLocale();
         ResourceBundle bundle = ResourceBundle.getBundle("resource", locale);
-        menu.put(new InputDrug(ourDrugs), bundle.getString("inputDrug"));
-        menu.put(new OutputDrug(ourDrugs), bundle.getString("outputDrug"));
-        menu.put(new SearchByBatch(ourDrugs), bundle.getString("searchBath"));
-        menu.put(new SearchByName(ourDrugs), bundle.getString("searchName"));
-        menu.put(new SortByName(ourDrugs), bundle.getString("sortByName"));
-        menu.put(new SortByDate(ourDrugs), bundle.getString("sortByDate"));
-        menu.put(new ProportionOfDrugForm(ourDrugs), bundle.getString("proportion"));
-        menu.put(new Statistic6MonthAgo((ourDrugs)), bundle.getString("statistic6Month"));
-        menu.put(new StatisticMinMaxPackages((ourDrugs)), bundle.getString("statisticMinMax"));
 
         StringBuilder show = new StringBuilder(bundle.getString("select"));
-        int count = 1;
-        for (Map.Entry<Object, String> entry : menu.entrySet()) {
-            show.append("\n").append(count).append(". ").append(entry.getValue());
-            count++;
+        for (Map.Entry<Integer, MenuItemLocale> entry : menu.entrySet()) {
+            show.append("\n").append(entry.getKey()).append(". ").append(entry.getValue().localeMenu());
         }
         System.out.println(show.toString());
 
         int choice = scanner.nextInt();
-
+        System.out.println(menu.get(choice).localeMenu());
+        menu.get(choice).execute();
     }
 
+    @Override
+    public Locale getLocale() {
+        return null;
+    }
 }

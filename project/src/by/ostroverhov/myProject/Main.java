@@ -19,15 +19,10 @@ public class Main {
 
         new OutputDrug(drugList.getOurDrugs()).execute();
 
-        try {
-            new SearchByBatch(drugList.getOurDrugs()).execute();
-        } catch (MySearchException e) {
-            System.out.println(e.getMessage());
-            e.printStackTrace();
-        }
+
 
         System.out.println("------------------");
 
-        // new Menu().start();
+        new Menu().start();
     }
 }

@@ -1,20 +1,18 @@
 package by.ostroverhov.myProject.statistic;
 
 import by.ostroverhov.myProject.drugs.Drug;
-import by.ostroverhov.myProject.menu.MenuItem;
+import by.ostroverhov.myProject.menu.RootMenuItem;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
-public class Statistic6MonthAgo implements MenuItem {
+public class Statistic6MonthAgo {
     List<Drug> ourDrugs;
+    private RootMenuItem rootMenuItem;
 
     public Statistic6MonthAgo(List<Drug> ourDrugs) {
         this.ourDrugs = ourDrugs;
     }
 
-    @Override
     public void execute() {
         Date currentDate = new Date();
         Calendar c = Calendar.getInstance();
@@ -27,5 +25,11 @@ public class Statistic6MonthAgo implements MenuItem {
             if (i.getProductionDate().compareTo(date6MonthsAgo) < 0)
                 System.out.println(i);
         }
+    }
+
+    public String localeMenu() {
+        Locale locale = rootMenuItem.getLocale();
+        ResourceBundle bundle = ResourceBundle.getBundle("resource", locale);
+        return bundle.getString("statistic6Month");
     }
 }
