@@ -1,13 +1,17 @@
 package by.ostroverhov.myProject.menu;
 
+import by.ostroverhov.myProject.drugs.Drug;
+import by.ostroverhov.myProject.statistic.Statistic6MonthAgo;
+
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class MenuStatistic6MonthAgo implements MenuItemLocale {
     private RootMenuItem rootMenuItem;
 
-    public MenuStatistic6MonthAgo(RootMenuItem rootMenu) {
-        this.rootMenuItem = rootMenu;
+    public MenuStatistic6MonthAgo(RootMenuItem rootMenuItem) {
+        this.rootMenuItem = rootMenuItem;
     }
 
     @Override
@@ -18,7 +22,8 @@ public class MenuStatistic6MonthAgo implements MenuItemLocale {
     }
 
     @Override
-    public void execute() {
-
+    public void execute(List<Drug> ourDrug) {
+        new Statistic6MonthAgo(ourDrug).execute();
+        new OperationChoiceMenuItem(rootMenuItem).execute(ourDrug);
     }
 }

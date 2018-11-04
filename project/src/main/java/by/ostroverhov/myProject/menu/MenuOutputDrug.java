@@ -1,13 +1,17 @@
 package by.ostroverhov.myProject.menu;
 
+import by.ostroverhov.myProject.drugs.Drug;
+import by.ostroverhov.myProject.drugs.OutputDrug;
+
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class MenuOutputDrug implements MenuItemLocale {
     private RootMenuItem rootMenuItem;
 
-    public MenuOutputDrug(RootMenuItem rootMenu) {
-        this.rootMenuItem = rootMenu;
+    public MenuOutputDrug(RootMenuItem rootMenuItem) {
+        this.rootMenuItem = rootMenuItem;
     }
 
     @Override
@@ -18,7 +22,8 @@ public class MenuOutputDrug implements MenuItemLocale {
     }
 
     @Override
-    public void execute() {
-
+    public void execute(List<Drug> ourDrug) {
+        new OutputDrug(ourDrug).execute();
+        new OperationChoiceMenuItem(rootMenuItem).execute(ourDrug);
     }
 }

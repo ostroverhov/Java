@@ -4,9 +4,11 @@ import by.ostroverhov.myProject.drugs.Drug;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 
 public class SearchByBatch {
-    private Scanner scanner = new Scanner(System.in);
+    private static final Scanner SCANNER = new Scanner(System.in);
+
     List<Drug> ourDrugs;
 
     public SearchByBatch(List<Drug> ourDrugs) {
@@ -15,11 +17,11 @@ public class SearchByBatch {
 
     public void execute() throws MySearchException {
         System.out.println("Введите номер серии: ");
-        String batch = scanner.next();
+        String batch = SCANNER.next();
         for (Drug i : ourDrugs) {
             if (i.getBatch().equals(batch)) {
                 System.out.println(i);
-            } else throw new MySearchException("данной серии препарата нет в базе");
+            } else throw new MySearchException("Такого номера нет в базе");
         }
     }
 }

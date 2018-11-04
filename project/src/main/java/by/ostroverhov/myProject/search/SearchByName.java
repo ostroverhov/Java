@@ -5,11 +5,13 @@ import by.ostroverhov.myProject.search.MySearchException;
 
 import java.util.List;
 import java.util.Scanner;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class SearchByName  {
-    private Scanner scanner = new Scanner(System.in);
+public class SearchByName {
+    private static final Scanner SCANNER = new Scanner(System.in);
+
     List<Drug> ourDrugs;
 
     public SearchByName(List<Drug> ourDrugs) {
@@ -18,14 +20,14 @@ public class SearchByName  {
 
     public void execute() throws MySearchException {
         System.out.println("Введите название: ");
-        String name = scanner.next();
+        String name = SCANNER.next();
 
-        Pattern serch = Pattern.compile("");
+        Pattern search = Pattern.compile(".*" + name + ".*");
         for (Drug i : ourDrugs) {
-            Matcher matcher = serch.matcher(i.getName());
+            Matcher matcher = search.matcher(i.getName());
             if (matcher.matches()) {
                 System.out.println(i);
-            }
+            } else throw new MySearchException("Такого названия нет в базе");
         }
     }
 }

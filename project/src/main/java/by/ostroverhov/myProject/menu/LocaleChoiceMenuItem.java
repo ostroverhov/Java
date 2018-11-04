@@ -1,5 +1,8 @@
 package by.ostroverhov.myProject.menu;
 
+import by.ostroverhov.myProject.drugs.Drug;
+
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.Scanner;
@@ -12,7 +15,7 @@ public class LocaleChoiceMenuItem implements MenuItemLocale, RootMenuItem {
 
 
     @Override
-    public void execute() {
+    public void execute(List<Drug> ourDrug) {
         StringBuilder show = new StringBuilder("Выберите язык:");
         for (int i = 0; i < locales.size(); i++) {
             show.append("\n").append(i + 1).append(". ").append(locales.get(i));
@@ -24,7 +27,7 @@ public class LocaleChoiceMenuItem implements MenuItemLocale, RootMenuItem {
         ResourceBundle bundle = ResourceBundle.getBundle("resource", localeChoice);
         System.out.println(bundle.getString("hello"));
 
-        next.execute();
+        next.execute(ourDrug);
     }
 
     @Override
