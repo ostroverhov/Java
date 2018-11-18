@@ -24,6 +24,10 @@ public class Drug<T> {
         this.amountPackages = amountPackages;
     }
 
+    public int getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }
@@ -44,8 +48,8 @@ public class Drug<T> {
         return drugform;
     }
 
-    public void setAmountPackages(int amountPackages) {
-        this.amountPackages = amountPackages;
+    public Boolean getQualityControl() {
+        return qualityControl;
     }
 
     @Override

@@ -6,8 +6,7 @@ import by.ostroverhov.myProject.menu.RootMenuItem;
 import java.util.*;
 
 public class SortByName {
-    List<Drug> ourDrugs;
-    private RootMenuItem rootMenuItem;
+    private List<Drug> ourDrugs;
 
     public SortByName(List<Drug> ourDrugs) {
         this.ourDrugs = ourDrugs;
@@ -19,11 +18,4 @@ public class SortByName {
             System.out.println(i);
         }
     }
-
-    public String localeMenu() {
-        Locale locale = rootMenuItem.getLocale();
-        ResourceBundle bundle = ResourceBundle.getBundle("resource", locale);
-        return bundle.getString("sortByName");
-    }
-
 }

@@ -8,8 +8,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ProportionOfDrugForm {
-    List<Drug> ourDrugs;
-    private RootMenuItem rootMenuItem;
+    private List<Drug> ourDrugs;
 
     public ProportionOfDrugForm(List<Drug> ourDrugs) {
         this.ourDrugs = ourDrugs;
@@ -35,11 +34,4 @@ public class ProportionOfDrugForm {
                 + (double) amountTablet / amountDrugForm * 100 + "% / "
                 + (double) amountConcentrate / amountDrugForm * 100 + "%");
     }
-
-    public String localeMenu() {
-        Locale locale = rootMenuItem.getLocale();
-        ResourceBundle bundle = ResourceBundle.getBundle("resource", locale);
-        return bundle.getString("proportion");
-    }
-
 }

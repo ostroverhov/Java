@@ -9,9 +9,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class SortByDate {
-    List<Drug> ourDrugs;
-    private RootMenuItem rootMenuItem;
-
+    private List<Drug> ourDrugs;
 
     public SortByDate(List<Drug> ourDrugs) {
         this.ourDrugs = ourDrugs;
@@ -22,11 +20,5 @@ public class SortByDate {
         for (Object i:ourDrugs) {
             System.out.println(i);
         }
-    }
-
-    public String localeMenu() {
-        Locale locale = rootMenuItem.getLocale();
-        ResourceBundle bundle = ResourceBundle.getBundle("resource", locale);
-        return bundle.getString("sortByDate");
     }
 }

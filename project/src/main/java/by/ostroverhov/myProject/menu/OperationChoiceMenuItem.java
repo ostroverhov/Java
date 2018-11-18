@@ -24,8 +24,11 @@ public class OperationChoiceMenuItem implements MenuItemLocale, RootMenuItem {
         menu.put(6, new MenuStatisticMinMaxPackages(this));
         menu.put(7, new MenuStatistic6MonthAgo(this));
         menu.put(8, new MenuOutputDrug(this));
-        menu.put(9, new MenuInputDrug(this));
-        menu.put(10, new MenuExit(this));
+        menu.put(9, new MenuOutputTXT(this));
+        menu.put(10, new MenuOutputXML(this));
+        menu.put(11, new MenuOutputJSON(this));
+        menu.put(12, new MenuInputDrug(this));
+        menu.put(13, new MenuExit(this));
     }
 
     public OperationChoiceMenuItem(RootMenuItem rootMenuItem) {

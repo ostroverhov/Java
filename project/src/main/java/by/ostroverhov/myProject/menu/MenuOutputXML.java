@@ -1,20 +1,20 @@
 package by.ostroverhov.myProject.menu;
 
 import by.ostroverhov.myProject.drugs.Drug;
-import by.ostroverhov.myProject.search.MySearchException;
-import by.ostroverhov.myProject.search.SearchByBatch;
+import by.ostroverhov.myProject.output.OutputXML;
+import org.xml.sax.SAXException;
 
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class MenuSearchByBatch implements MenuItemLocale {
-    private static final Logger LOGGER = Logger.getLogger(SearchByBatch.class.getName());
+public class MenuOutputXML implements MenuItemLocale {
     private RootMenuItem rootMenuItem;
 
-    public MenuSearchByBatch(RootMenuItem rootMenuItem) {
+    public MenuOutputXML(RootMenuItem rootMenuItem) {
         this.rootMenuItem = rootMenuItem;
     }
 
@@ -22,15 +22,15 @@ public class MenuSearchByBatch implements MenuItemLocale {
     public String localeMenu() {
         Locale locale = rootMenuItem.getLocale();
         ResourceBundle bundle = ResourceBundle.getBundle("resource", locale);
-        return bundle.getString("searchBatch");
+        return bundle.getString("outputXML");
     }
 
     @Override
     public void execute(List<Drug> ourDrug) {
         try {
-            new SearchByBatch(ourDrug).execute();
-        } catch (MySearchException e) {
-            LOGGER.log(Level.ALL, e.getMessage(), e);
+            new OutputXML(ourDrug).execute();
+        } catch (ParserConfigurationException | IOException | SAXException | TransformerException e) {
+            e.printStackTrace();
         } finally {
             new OperationChoiceMenuItem(rootMenuItem).execute(ourDrug);
         }

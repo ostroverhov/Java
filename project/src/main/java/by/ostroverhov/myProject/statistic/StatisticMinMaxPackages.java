@@ -8,8 +8,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class StatisticMinMaxPackages {
-    List<Drug> ourDrugs;
-    private RootMenuItem rootMenuItem;
+    private List<Drug> ourDrugs;
 
     public StatisticMinMaxPackages(List<Drug> ourDrugs) {
         this.ourDrugs = ourDrugs;
@@ -29,11 +28,5 @@ public class StatisticMinMaxPackages {
         }
         System.out.println("серия с минимальным количеством упаковок:\n " + minDrugAmountPackages);
         System.out.println("серия с максимальным количеством упаковок:\n " + maxDrugAmountPackages);
-    }
-
-    public String localeMenu() {
-        Locale locale = rootMenuItem.getLocale();
-        ResourceBundle bundle = ResourceBundle.getBundle("resource", locale);
-        return bundle.getString("statisticMinMax");
     }
 }
