@@ -4,8 +4,8 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Compression {
-    private static final Pattern PATTERN_FORWARD = Pattern.compile("");
-    private static final Pattern PATTERN_BACK = Pattern.compile("");
+    private static final Pattern PATTERN_FORWARD = Pattern.compile("(.)(\\1)+");
+    private static final Pattern PATTERN_BACK = Pattern.compile(".\\d");
 
     public String forward (String text) {
         Matcher matcher = PATTERN_FORWARD.matcher(text);
