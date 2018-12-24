@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serviceStation>
+    <customers>
+        <customer>
+            <id>0</id>
+            <name>Ivan Ivanov</name>
+            <lastOrder>2015-09-25</lastOrder>
+            <dateOfBirth>2004-10-25</dateOfBirth>
+            <cars>
+                <car>BMW 5</car>
+                <car>Opel</car>
+            </cars>
+            <discount>true</discount>
+        </customer>
+        <customer>
+            <id>1</id>
+            <name>Alex Petrov</name>
+            <lastOrder>2015-01-12</lastOrder>
+            <dateOfBirth>1998-03-24</dateOfBirth>
+            <cars>
+                <car>Audi</car>
+                <car>Citroen</car>
+                <car>Toyota</car>
+            </cars>
+            <discount>false</discount>
+        </customer>
+        <customer>
+            <id>2</id>
+            <name>Elena Sergeeva</name>
+            <lastOrder>2015-05-12</lastOrder>
+            <dateOfBirth>1999-05-02</dateOfBirth>
+            <cars>
+                <car>Peugeot</car>
+            </cars>
+            <discount>true</discount>
+        </customer>
+    </customers>
+</serviceStation>
